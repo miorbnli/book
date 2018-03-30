@@ -29,7 +29,7 @@
 		<!-- shiro的核心安全接口 -->
 		<property name="securityManager" ref="securityManager" />
 		<!-- 要求登录时的连接 -->
-		<property name="loginUrl" value="/loginUI.do"></property>
+		<property name="loginUrl" value="/loginUI"></property>
 		<!-- 登录成功后要跳转的连接(此处已经在登录中处理了) -->
 		<!-- <property name="successUrl" value="/index.jsp"></property> -->
 		<!-- 访问未对其授权的资源时,要跳转的连接 <property name="unauthorizedUrl" value="/default.html"></property> -->
@@ -37,11 +37,14 @@
 		<property name="filterChainDefinitions">
 			<value>
 				<!-- 对静态资源设置允许匿名访问 -->
-				<!-- 例如: -->/bower_components/** = anon
+				<!-- 例如: -->
+				/pages/** = anon
 				<!-- 可匿名访问路径，例如：验证码、登录连接、退出连接等 -->
-				<!-- 例如: -->/doLogin.do=anon
+				<!-- 例如: -->
+				/doLogin=anon
 				<!-- 退出 -->
-				<!-- 例如: -->/doLogout.do = logout  <!-- 会调用Subject的logout方法,此方法会将session清空 -->
+				<!-- 例如: --><!-- 会调用Subject的logout方法,此方法会将session清空 -->
+				/doLogout = logout  
 				<!-- 剩余其他路径，必须认证通过才可以访问 -->
 				/** = anon<!-- 改为authc -->>
 			</value>

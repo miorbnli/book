@@ -16,23 +16,18 @@ public class BasePojo implements Serializable{
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8") 
 	private Date createdTime;
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8") 
-    private Date updatedTime;
-
+    private Date modifiedtime;
 	public Date getCreatedTime() {
 		return createdTime;
 	}
-
 	public void setCreatedTime(Date createdTime) {
 		this.createdTime = createdTime;
 	}
-
-	public Date getUpdatedTime() {
-		return updatedTime;
+	public Date getModifiedtime() {
+		return modifiedtime;
 	}
-
-	public void setUpdatedTime(Date updatedTime) {
-		this.updatedTime = updatedTime;
+	public void setModifiedtime(Date modifiedtime) {
+		this.modifiedtime = modifiedtime;
 	}
-	
 	
 }
