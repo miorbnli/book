@@ -10,6 +10,7 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
 	<!-- spring整合shiro -->
+
 	<!-- 配置shiro安全管理器 是shiro的核心管理器 -->
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
 		<property name="realm" ref="userRealm"></property>
@@ -29,29 +30,37 @@
 		<!-- shiro的核心安全接口 -->
 		<property name="securityManager" ref="securityManager" />
 		<!-- 要求登录时的连接 -->
-		<property name="loginUrl" value="/loginUI"></property>
+		<property name="loginUrl" value="/loginUI.html"></property>
 		<!-- 登录成功后要跳转的连接(此处已经在登录中处理了) -->
-		<!-- <property name="successUrl" value="/index.jsp"></property> -->
+		<!-- <property name="successUrl" value="/indexUI.html"></property> -->
 		<!-- 访问未对其授权的资源时,要跳转的连接 <property name="unauthorizedUrl" value="/default.html"></property> -->
 		<!-- shiro连接约束配置 -->
 		<property name="filterChainDefinitions">
 			<value>
 				<!-- 对静态资源设置允许匿名访问 -->
-				<!-- 例如: -->
-				/pages/** = anon
+				/bower_components/** = anon
+				/build/** = anon
+				/dist/** = anon
+				/plugins/** = anon
 				<!-- 可匿名访问路径，例如：验证码、登录连接、退出连接等 -->
-				<!-- 例如: -->
-				/doLogin=anon
+				/doLogin.html=anon
+				/loginUI.html=anon
+				/registUI.html=anon
+				/indexUI.html=anon
+				/user/saveUser.html=anon
 				<!-- 退出 -->
-				<!-- 例如: --><!-- 会调用Subject的logout方法,此方法会将session清空 -->
-				/doLogout = logout  
+				/doLogout.html = logout  <!-- 会调用Subject的logout方法,此方法会将session清空 -->
 				<!-- 剩余其他路径，必须认证通过才可以访问 -->
-				/** = anon<!-- 改为authc -->>
+				/** = authc
 			</value>
 		</property>
 	</bean>
+
+
+
 	<!--Shiro生命周期处理器 shrio框架会负责管理各种组件的声明周期 -->
 	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+
 	<!--启用shiro注解权限检查 -->
 	<bean
 		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"

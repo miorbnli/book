@@ -14,14 +14,15 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class BasePojo implements Serializable{
 	private static final long serialVersionUID = 8291058891687026421L;
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8") 
-	private Date createdTime;
+	private Date createdtime;
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8") 
     private Date modifiedtime;
-	public Date getCreatedTime() {
-		return createdTime;
+	public Date getCreatedtime() {
+		return createdtime;
+		
 	}
-	public void setCreatedTime(Date createdTime) {
-		this.createdTime = createdTime;
+	public void setCreatedtime(Date createdTime) {
+		this.createdtime = createdTime;
 	}
 	public Date getModifiedtime() {
 		return modifiedtime;

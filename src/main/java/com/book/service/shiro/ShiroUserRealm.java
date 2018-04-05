@@ -45,7 +45,7 @@ public class ShiroUserRealm extends AuthorizingRealm {
 				set.add(perm);
 			}
 		}
-		// 2.封装用户权限(AuthorizztionInfo)
+		// 2.封装用户权限
 		SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
 		info.setStringPermissions(set);// set方法封装权限或也可以用构造直接封装
 		return info;
@@ -60,7 +60,7 @@ public class ShiroUserRealm extends AuthorizingRealm {
 		UsernamePasswordToken upToken = (UsernamePasswordToken) token;
 		String username = upToken.getUsername();
 		// 2.根据用户名查找用户对象
-		User user = userMapper.findObjectByUserName(username);
+		User user = userMapper.findUserByUserName(username);
 		ByteSource credentialsSalt = ByteSource.Util.bytes(user.getSalt());
 		// 3.初始化SimpleAuthenticationInfo对象
 		SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(username, user.getPassword(), credentialsSalt,

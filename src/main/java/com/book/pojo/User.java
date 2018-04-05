@@ -15,6 +15,7 @@ import com.book.common.po.BasePojo;
 @Table(name="t_user")
 public class User extends BasePojo{
 	private static final long serialVersionUID = 7672753922589126233L;
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long userId;
@@ -106,4 +107,12 @@ public class User extends BasePojo{
     public void setModifieduser(String modifieduser) {
         this.modifieduser = modifieduser == null ? null : modifieduser.trim();
     }
+
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", username=" + username + ", password=" + password + ", salt=" + salt
+				+ ", email=" + email + ", mobile=" + mobile + ", valid=" + valid + ", createduser=" + createduser
+				+ ", modifieduser=" + modifieduser + "]";
+	}
+    
 }

@@ -40,7 +40,21 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-
+	<!-- spring整合shiro安全框架 -->
+	<filter>
+		<filter-name>delegatingFilterProxy</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		<!-- 初始化参数 -->
+		<init-param>
+			<param-name>targetBeanName</param-name>
+			<!-- 此参数值与spring配置文件中的bean对应的id相同 -->
+			<param-value>shiroFilter</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>delegatingFilterProxy</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 
 	<!-- Druid监控视图Servlet -->
 	<servlet>

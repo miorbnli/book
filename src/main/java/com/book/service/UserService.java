@@ -1,7 +1,6 @@
 package com.book.service;
 
 import java.util.Map;
-
 import com.book.common.util.PageObject;
 import com.book.pojo.User;
 
@@ -21,20 +20,34 @@ public interface UserService {
 	 * @param roleIds
 	 * @return
 	 */
-	int updateUser(User entity,String roleIds);
+	int updateUser(User user,String roleIds);
 	
 	/**
 	 *根据id查询用户信息以及用户关联的角色信息 
+	 *
 	 *@param  id 表示用户id
 	 *@return 包含用户信息以及角色信息
 	 */
 	Map<String,User> findUserById(Long id);
 	
-	int saveUser(User entity,String roleIds);
+	/**
+	 * 添加一个用户
+	 * 
+	 * @param entity
+	 * @param roleIds
+	 * @return
+	 */
+	void saveUser(User entity,String roleIds);
 	
+	
+	/**
+	 * 分页查询用户信息
+	 * 
+	 * @param username
+	 * @param pageCurrent
+	 * @return
+	 */
 	PageObject<User> findPageObjects(String username, Integer pageCurrent);
 	
-	/**禁用和启用*/
-	int validById(Integer id,Integer valid,String modifiedUser);
 	
 }
