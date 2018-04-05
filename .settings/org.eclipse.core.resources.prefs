@@ -1,2 +1,12 @@
 eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
+encoding//src/main/resources=UTF-8
 encoding//src/main/resources/property/jdbc.properties=GBK
+encoding//src/main/webapp/WEB-INF/pages/common/page.html=UTF-8
+encoding//src/main/webapp/WEB-INF/pages/sys/menu_edit.html=UTF-8
+encoding//src/main/webapp/WEB-INF/pages/sys/menu_list.html=UTF-8
+encoding//src/main/webapp/WEB-INF/pages/sys/role_edit.html=UTF-8
+encoding//src/main/webapp/WEB-INF/pages/sys/role_list.html=UTF-8
+encoding//src/main/webapp/WEB-INF/pages/sys/user_edit.html=UTF-8
+encoding//src/main/webapp/WEB-INF/pages/sys/user_list.html=UTF-8
+encoding/<project>=UTF-8

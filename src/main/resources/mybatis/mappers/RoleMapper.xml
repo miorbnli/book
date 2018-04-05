@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.book.mapper.RoleMapper">
+	<resultMap id="BaseResultMap" type="com.book.pojo.Role">
+		<id column="role_id" property="roleId" />
+		<result column="role_name" property="roleName" />
+		<result column="note" property="note" />
+		<result column="createdTime" property="createdtime" />
+		<result column="modifiedTime" property="modifiedtime" />
+		<result column="createdUser" property="createduser" />
+		<result column="modifiedUser" property="modifieduser" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		role_id, role_name, note, createdTime, modifiedTime, createdUser, modifiedUser
+	</sql>
+	<delete id="">
+		delete from role where role_id in(
+		<foreach collection="list" open="(" close=")" separator="," item="item">
+			${item}
+		</foreach>
+		)
+	</delete>
+</mapper>
